@@ -14,10 +14,8 @@ export default function ContactsForm() {
   const contacts = useSelector((state) => state.contacts);
   const dispatch = useDispatch();
 
-  if (contacts.length > 0) {
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
-  }
-
+  localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
+  
   const handleChange = ({ target: { name, value } }) => {
     dispatch({ type: NEW_CONTACT, payload: { id: nanoid(), [name]: value } });
   };
